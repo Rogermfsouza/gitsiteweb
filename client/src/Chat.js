@@ -29,6 +29,7 @@ useEffect(() => {
 
       setMessageList((list) => [...list, data]);
     });
+    
     socket.on("users_online", (data) => {
       setUsersOnline(data);
     });
@@ -37,7 +38,7 @@ useEffect(() => {
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <p id="pmudar">Chat da Live</p>
+        <p id="pmudar">Chat da Live | {usersOnline}</p>
         <p id="onlines">Online: <span className="online-indicator">{usersOnline}</span></p>
       </div>
       <div className="chat-body">
