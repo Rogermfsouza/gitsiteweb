@@ -6,6 +6,21 @@
   place-items: center;
 }
 
+.onlines{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.online-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 
