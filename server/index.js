@@ -3,13 +3,10 @@ const app = express();
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
-
 app.use(cors({ origin: "http://177.153.51.103" }));
 
-const { createServer } = http;
-const server = createServer(app);
+const server = http.createServer(app);
 
-const { Server } = io;
 const io = new Server(server, {
   cors: {
     origin: "http://177.153.51.103",
