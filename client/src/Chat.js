@@ -4,6 +4,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 function Chat({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [usersOnline, setUsersOnline] = useState(0);
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -28,12 +29,17 @@ useEffect(() => {
 
       setMessageList((list) => [...list, data]);
     });
+    
+    socket.on("users_online", (data) => {
+      setUsersOnline(data);
+    });
   }, [socket]);
-
+  
   return (
     <div className="chat-window">
       <div className="chat-header">
-        <p id="pmudar">Chat da Live</p>
+        <p id="pmudar">Chat da Live | {usersOnline}</p>
+        <p id="onlines">Online: <span className="online-indicator">{usersOnline}</span></p>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
