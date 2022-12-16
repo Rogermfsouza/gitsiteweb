@@ -5,7 +5,7 @@ import Chat from "./Chat";
 
 const socket = io.connect("http://177.153.51.103:3001"); //https://www.oasistv.com.br/
 
-console.log("Client RUNNING");
+console.log("Client RUNNING OK");
 
 function App() {
   const [username, setUsername] = useState("");
