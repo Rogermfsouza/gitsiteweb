@@ -14,12 +14,9 @@ const io = new Server(server, {
   },
 });
 
-let usersOnline = 0;
-
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
-  usersOnline++;
-  io.emit("users_online", usersOnline);
+
 
   socket.on("join_room", (data) => {
     socket.join(data);
@@ -31,8 +28,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    usersOnline--;
-    io.emit("users_online", usersOnline);
     console.log("User Disconnected", socket.id);
   });
 });
